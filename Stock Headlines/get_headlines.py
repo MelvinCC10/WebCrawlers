@@ -18,9 +18,9 @@ class stock():
     def headlines(self):
         page = urlopen(self.url)
         soup = BeautifulSoup(page,'html.parser')
-        find_price = soup.find('h3', attrs={'class':'article_headline'})
-        print(find_price)
-        price = find_price.text.strip()
+        headlines = soup.find_all('a', attrs={'class':'link'})
+        for head_line in headlines:
+            print(head_line.text.strip())
 
 
 
